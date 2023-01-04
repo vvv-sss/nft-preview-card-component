@@ -1,0 +1,233 @@
+/* === CSS Reset === */
+/* #region */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* #endregion */
+
+/* === Variables === */
+/* #region */
+
+:root {
+    --color-primary-100: hsl(215, 51%, 70%);
+    --color-primary-200: hsl(178, 100%, 50%);
+
+    --color-neutral-100: hsl(217, 54%, 11%);
+    --color-neutral-200: hsl(216, 50%, 16%);
+    --color-neutral-300: hsl(215, 32%, 27%);
+    --color-neutral-400: hsl(0, 0%, 100%);
+
+    --fs-100: 0.94rem;     /* 15px */
+    --fs-200: 1.13rem;     /* 18px */
+    --fs-300: 1.38rem;     /* 22px */
+
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-semibold: 600;
+}
+/* #endregion */
+
+/* === Global Styles === */
+/* #region */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--color-neutral-100);
+    font-family: 'Outfit', sans-serif;
+    cursor: default;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+/* #endregion */
+
+/* === Main Section === */
+/* #region */
+
+.nft-card {
+    position: relative;
+    box-sizing: border-box;
+    max-width: 350px;
+    max-height: 596px;
+    padding: 1.5rem 1.5rem;
+    margin: 3rem 1rem;
+    border-radius: 1rem;
+    background-color: var(--color-neutral-200);
+}
+
+.nft-card-hero {
+    position: relative;
+    max-width: 302px;
+    max-height: 302px;
+    border-radius: 0.5rem;
+    margin: 0 auto;
+    margin-bottom: 1.5rem;
+    transition: 0.2s;
+}
+
+.nft-card-hero:hover {
+    background-color: var(--color-primary-200);
+}
+
+.nft-card-hero__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.nft-card-hero:hover .nft-card-hero__icon {
+    opacity: 1;
+}
+
+.nft-card-hero__image {
+    display: block;
+    position: relative;
+    width: 100%;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    z-index: 0;
+    transition: 0.2s;
+}
+
+.nft-card-hero:hover:hover .nft-card-hero__image {
+    opacity: 0.5;
+}
+
+.nft-card-info__heading {
+    margin-bottom: 1rem;
+    color: var(--color-neutral-400);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-semibold);
+    line-height: 1.75rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.nft-card-info__heading:hover {
+    color: var(--color-primary-200);
+}
+
+.nft-card-info__description {
+    margin-bottom: 1.5rem;
+    color: var(--color-primary-100);
+    font-size: var(--fs-200);
+    font-weight: var(--fw-light);
+    line-height: 1.63rem;
+}
+
+.nft-card-info__price-days-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.nft-card-info__price-days-left,
+.nft-card-info__price-days-right {
+    display: flex;
+    align-items: center;
+}
+
+.nft-card-info__price-icon {
+    margin-right: 0.41em;
+}
+
+.nft-card-info__price-value {
+    color: var(--color-primary-200);
+}
+
+.nft-card-info__clock-icon {
+    margin-right: 0.48em;
+}
+
+.nft-card-info__days-value {
+    color: var(--color-primary-100)
+}
+
+.nft-card-info hr {
+    border-top-width: 0;
+    border-bottom-width: 0.5px;
+    margin-bottom: 1rem;
+    color: var(--color-primary-100);
+    opacity: 0.3;
+}
+
+.nft-card-info__creator {
+    display: flex;
+    align-items: center;
+}
+
+.nft-card-info__avatar {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--color-neutral-400);
+    border-radius: 50%;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.nft-card-info__creator-info {
+    color: var(--color-primary-100);
+}
+
+.nft-card-info__creator-info span {
+    color: var(--color-neutral-400);
+    transition: 0.2s;
+}
+
+.nft-card-info__creator-info span:hover {
+    color: var(--color-primary-200);
+}
+
+/* #endregion */
